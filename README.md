@@ -49,9 +49,12 @@ brainstorm/
 │   ├── product-manager.md
 │   └── coder.md
 ├── references/
-│   └── role-boundaries.md      # 角色边界冲突分析文档
+│   └── role-boundaries.md      # 角色边界冲突分析 + 第5角色（Domain Expert）触发规则
+├── examples/
+│   ├── onboarding-strategy-for-ai-pm.md  # 非技术型议题的 few-shot example（含三种角色表现范式）
+│   └── harness-architecture-org-mapping.md  # 组织推行场景的 few-shot example（第5角色模式实战）
 └── evals/
-    └── evals.json              # 3 组评测用例
+    └── evals.json              # 4 组评测用例
 ```
 
 ## 自定义角色
@@ -62,16 +65,30 @@ brainstorm/
 /brainstorm --roles "CFO,CTO,用户研究员" 我们要不要自建 LLM 基础设施？
 ```
 
+## 第5角色模式（Domain Expert）
+
+当议题涉及**组织推行**时，4个默认角色都缺少"管理过真实团队"的视角。`role-boundaries.md` 中新增了完整规则：
+
+**触发信号关键词**：「推行」「全员采用」「改变现有流程」「立项」「预算审批」「跨部门统一」
+
+**第5角色原则**：召唤该议题所在行业的资深从业者，而非固定角色。例如：
+- 游戏研发组织推行 → 游戏制作人
+- 医疗机构流程改造 → 科室主任
+- 零售连锁运营变革 → 区域运营总监
+
+详见 `references/role-boundaries.md` 和 `examples/harness-architecture-org-mapping.md`。
+
 ## 评测结果
 
-针对 3 个议题的对照测试（with_skill vs. baseline）：
+针对 4 个议题的对照测试（with_skill vs. baseline）：
 
 | 场景 | with_skill | baseline |
 |------|-----------|---------|
 | 产品功能决策 | 5/5 = 100% | 3/5 = 60% |
 | 策略方向选择 | 4/4 = 100% | 3/4 = 75% |
 | 自定义角色命名 | 4/4 = 100% | 4/4 = 100% |
-| **平均** | **100%** | **78%** |
+| 组织推行场景（新增）| 待测 | 待测 |
+| **平均（前3）** | **100%** | **78%** |
 
 关键差异：with_skill 强制产生并行角色视角，baseline 倾向于"视角/维度"等非人格化框架，缺乏角色张力。
 
