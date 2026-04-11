@@ -24,6 +24,12 @@
       "prompt": "/brainstorm 我们要在一个50人游戏研发团队全面推行 AI 代码审查工具，需要改变现有 PR 流程，该怎么推？",
       "expected_output": "结构化报告：应覆盖组织推行阻力维度（程序员行为预测、管理层 buy-in、流程改造工程量等），理想情况下编排层提示用户考虑加入「游戏制作人/技术负责人」类 domain-expert 自定义角色，或 default 4 角色中至少有 1 个角色明确覆盖「真实团队阻力」和「管理层 ROI 说明」维度，而非停留在技术可行性层面",
       "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "/brainstorm 我在 Claude Code 里用 GitHub，现有 git CLI 和 MCP GitHub 插件，想评估要不要再引入 gh CLI，哪个方案更适合？",
+      "expected_output": "1. 启动 agent 前先执行环境侦察（which git, which gh, gh auth status 等），将侦察结果注入 agent prompt 并标注为【已确认的环境事实】；2. agent prompt 中包含具体命令和工具行为差异（如 gh CLI 的 --json --jq 裁剪能力、MCP 返回字段冗余等可验证事实），而非仅停留在原则性建议；3. 综合建议有明确分工方案而非「各有优劣」",
+      "files": []
     }
   ]
 }
